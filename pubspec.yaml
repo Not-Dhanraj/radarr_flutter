@@ -1,7 +1,7 @@
 name: radarr_flutter
 description: Facilitate the communication to and from Radarr's API, a movie
   collection manager for Usenet and BitTorrent users.
-version: 3.0.0+2
+version: 3.0.1
 homepage: https://github.com/Not-Dhanraj/radarr_flutter
 repository: https://github.com/Not-Dhanraj/radarr_flutter
 issue_tracker: https://github.com/Not-Dhanraj/radarr_flutter\issues

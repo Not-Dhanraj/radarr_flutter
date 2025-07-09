@@ -1,3 +1,5 @@
+# 3.0.1
+- Fixed imports
 # 3.0.0+2
 - Fixed homepage link
 # 3.0.0+1

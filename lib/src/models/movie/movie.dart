@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:radarr_flutter/radarr.dart';
+import 'package:radarr_flutter/radarr_flutter.dart';
 
 part 'movie.g.dart';
 
