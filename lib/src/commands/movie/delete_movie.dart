@@ -1,13 +1,17 @@
-part of radarr_commands;
+part of radarr_flutter_commands;
 
-Future<void> _commandDeleteMovie(Dio client, {
-    required int movieId,
-    bool addImportExclusion = false,
-    bool deleteFiles = false,
+Future<void> _commandDeleteMovie(
+  Dio client, {
+  required int movieId,
+  bool addImportExclusion = false,
+  bool deleteFiles = false,
 }) async {
-    await client.delete('movie/$movieId', queryParameters: {
-        'addImportExclusion': addImportExclusion,
-        'deleteFiles': deleteFiles,
-    });
-    return;
+  await client.delete(
+    'movie/$movieId',
+    queryParameters: {
+      'addImportExclusion': addImportExclusion,
+      'deleteFiles': deleteFiles,
+    },
+  );
+  return;
 }

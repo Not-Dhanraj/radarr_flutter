@@ -1,8 +1,6 @@
-part of radarr_commands;
+part of radarr_flutter_commands;
 
-Future<RadarrMovie> _commandGetMovie(Dio client, {
-    required int movieId,
-}) async {
-    Response response = await client.get('movie/$movieId');
-    return RadarrMovie.fromJson(response.data);
+Future<RadarrMovie> _commandGetMovie(Dio client, {required int movieId}) async {
+  Response response = await client.get('movie/$movieId');
+  return RadarrMovie.fromJson(response.data);
 }

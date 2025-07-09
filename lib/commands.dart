@@ -1,5 +1,5 @@
 /// Library containing all logic and accessors to make calls to Radarr's API.
-library radarr_commands;
+library radarr_flutter_commands;
 
 import 'package:dio/dio.dart';
 import 'models.dart';

@@ -1,3 +1,7 @@
+# 3.0.0
+- Updated to null safety
+- Bump versions
+
 # 2.1.1+1
 - Updated package metadata
 # 2.1.1

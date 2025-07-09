@@ -1,5 +1,5 @@
 /// Library containing all model definitions for Radarr data.
-library radarr_models;
+library radarr_flutter_models;
 
 /// Commands
 export 'src/models/command/command.dart';

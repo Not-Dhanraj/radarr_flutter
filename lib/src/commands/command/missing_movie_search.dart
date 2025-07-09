@@ -1,8 +1,9 @@
-part of radarr_commands;
+part of radarr_flutter_commands;
 
 Future<RadarrCommand> _commandMissingMovieSearch(Dio client) async {
-    Response response = await client.post('command', data: {
-        'name': 'MissingMoviesSearch',
-    });
-    return RadarrCommand.fromJson(response.data);
+  Response response = await client.post(
+    'command',
+    data: {'name': 'MissingMoviesSearch'},
+  );
+  return RadarrCommand.fromJson(response.data);
 }

@@ -1,8 +1,6 @@
-part of radarr_commands;
+part of radarr_flutter_commands;
 
-Future<void> _commandDeleteTag(Dio client, {
-    required int id,
-}) async {
-    await client.delete('tag/$id');
-    return;
+Future<void> _commandDeleteTag(Dio client, {required int id}) async {
+  await client.delete('tag/$id');
+  return;
 }

@@ -1,4 +1,4 @@
-import 'package:radarr/radarr.dart';
+import 'package:radarr_flutter/radarr.dart';
 
 void main() async {
   // The host must include the protocol

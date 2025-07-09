@@ -1,11 +1,11 @@
 {
   "roots": [
-    "radarr"
+    "radarr_flutter"
   ],
   "packages": [
     {
-      "name": "radarr",
-      "version": "2.1.2",
+      "name": "radarr_flutter",
+      "version": "3.0.0",
       "dependencies": [
         "dio",
         "json_annotation"

@@ -1,16 +1,16 @@
-# radarr
+# radarr_flutter
 
 [![Pubdev][pubdev-shield]][pubdev]
 ![License][license-shield]
 
-Dart library package to facilitate the connection to and from [Radarr](https://radarr.video)'s API.
+Dart library package to facilitate the connection to and from [Radarr](https://radarr_flutter.video)'s API.
 
 ## Getting Started
 
 In order to use this package, you need to have to fetch your API key from within Radarr. Please ensure you do not publicly reveal your API key, as it will give any user with access full control of your Radarr instance. To get started simply import the Radarr package, and initialize a connection to your instance:
 
 ```dart
-Radarr radarr = Radarr(host: '<your instance URL>', apiKey: '<your API key>');
+Radarr radarr_flutter = Radarr(host: '<your instance URL>', apiKey: '<your API key>');
 ```
 
 Once initialized, you can access any of the command handlers to quickly and easily make calls to Radarr. For most calls that return data, model definitions have been created. Typings have also been created for parameters that have a set, finite list of options.
@@ -70,11 +70,11 @@ Dio dio = Dio(
         },
     ),
 );
-Radarr radarr = Radarr.from(dio);
+Radarr radarr_flutter = Radarr.from(dio);
 ```
 
 > You must ensure you set the BaseOptions specified above, specifically `baseUrl` and `queryParameters` otherwise the instance will not be able to create a successful connection to your machine.
 
 [license-shield]: https://img.shields.io/github/license/CometTools/Dart-Packages?style=for-the-badge
-[pubdev]: https://pub.dev/packages/radarr/
-[pubdev-shield]: https://img.shields.io/pub/v/radarr.svg?style=for-the-badge
+[pubdev]: https://pub.dev/packages/radarr_flutter/
+[pubdev-shield]: https://img.shields.io/pub/v/radarr_flutter.svg?style=for-the-badge

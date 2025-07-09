@@ -428,7 +428,7 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "radarr",
+      "name": "radarr_flutter",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.8"

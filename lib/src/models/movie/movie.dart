@@ -1,169 +1,195 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:radarr/radarr.dart';
+import 'package:radarr_flutter/radarr.dart';
 
 part 'movie.g.dart';
 
 /// Model for a single movie data from Radarr.
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class RadarrMovie {
-    @JsonKey(name: 'title')
-    String? title;
+  @JsonKey(name: 'title')
+  String? title;
 
-    @JsonKey(name: 'originalTitle')
-    String? originalTitle;
+  @JsonKey(name: 'originalTitle')
+  String? originalTitle;
 
-    @JsonKey(name: 'alternateTitles')
-    List<RadarrMovieAlternateTitles>? alternateTitles;
+  @JsonKey(name: 'alternateTitles')
+  List<RadarrMovieAlternateTitles>? alternateTitles;
 
-    @JsonKey(name: 'secondaryYearSourceId')
-    int? secondaryYearSourceId;
-    
-    @JsonKey(name: 'sortTitle')
-    String? sortTitle;
+  @JsonKey(name: 'secondaryYearSourceId')
+  int? secondaryYearSourceId;
 
-    @JsonKey(name: 'sizeOnDisk')
-    int? sizeOnDisk;
+  @JsonKey(name: 'sortTitle')
+  String? sortTitle;
 
-    @JsonKey(name: 'status', toJson: RadarrUtilities.availabilityToJson, fromJson: RadarrUtilities.availabilityFromJson)
-    RadarrAvailability? status;
+  @JsonKey(name: 'sizeOnDisk')
+  int? sizeOnDisk;
 
-    @JsonKey(name: 'overview')
-    String? overview;
+  @JsonKey(
+    name: 'status',
+    toJson: RadarrUtilities.availabilityToJson,
+    fromJson: RadarrUtilities.availabilityFromJson,
+  )
+  RadarrAvailability? status;
 
-    @JsonKey(name: 'inCinemas', toJson: RadarrUtilities.dateTimeToJson, fromJson: RadarrUtilities.dateTimeFromJson)
-    DateTime? inCinemas;
+  @JsonKey(name: 'overview')
+  String? overview;
 
-    @JsonKey(name: 'physicalRelease', toJson: RadarrUtilities.dateTimeToJson, fromJson: RadarrUtilities.dateTimeFromJson)
-    DateTime? physicalRelease;
+  @JsonKey(
+    name: 'inCinemas',
+    toJson: RadarrUtilities.dateTimeToJson,
+    fromJson: RadarrUtilities.dateTimeFromJson,
+  )
+  DateTime? inCinemas;
 
-    @JsonKey(name: 'digitalRelease', toJson: RadarrUtilities.dateTimeToJson, fromJson: RadarrUtilities.dateTimeFromJson)
-    DateTime? digitalRelease;
+  @JsonKey(
+    name: 'physicalRelease',
+    toJson: RadarrUtilities.dateTimeToJson,
+    fromJson: RadarrUtilities.dateTimeFromJson,
+  )
+  DateTime? physicalRelease;
 
-    @JsonKey(name: 'images')
-    List<RadarrImage>? images;
+  @JsonKey(
+    name: 'digitalRelease',
+    toJson: RadarrUtilities.dateTimeToJson,
+    fromJson: RadarrUtilities.dateTimeFromJson,
+  )
+  DateTime? digitalRelease;
 
-    @JsonKey(name: 'website')
-    String? website;
+  @JsonKey(name: 'images')
+  List<RadarrImage>? images;
 
-    @JsonKey(name: 'remotePoster')
-    String? remotePoster;
+  @JsonKey(name: 'website')
+  String? website;
 
-    @JsonKey(name: 'year')
-    int? year;
+  @JsonKey(name: 'remotePoster')
+  String? remotePoster;
 
-    @JsonKey(name: 'hasFile')
-    bool? hasFile;
+  @JsonKey(name: 'year')
+  int? year;
 
-    @JsonKey(name: 'youTubeTrailerId')
-    String? youTubeTrailerId;
+  @JsonKey(name: 'hasFile')
+  bool? hasFile;
 
-    @JsonKey(name: 'studio')
-    String? studio;
+  @JsonKey(name: 'youTubeTrailerId')
+  String? youTubeTrailerId;
 
-    @JsonKey(name: 'path')
-    String? path;
+  @JsonKey(name: 'studio')
+  String? studio;
 
-    @JsonKey(name: 'qualityProfileId')
-    int? qualityProfileId;
+  @JsonKey(name: 'path')
+  String? path;
 
-    @JsonKey(name: 'monitored')
-    bool? monitored;
+  @JsonKey(name: 'qualityProfileId')
+  int? qualityProfileId;
 
-    @JsonKey(name: 'minimumAvailability', toJson: RadarrUtilities.availabilityToJson, fromJson: RadarrUtilities.availabilityFromJson)
-    RadarrAvailability? minimumAvailability;
+  @JsonKey(name: 'monitored')
+  bool? monitored;
 
-    @JsonKey(name: 'isAvailable')
-    bool? isAvailable;
+  @JsonKey(
+    name: 'minimumAvailability',
+    toJson: RadarrUtilities.availabilityToJson,
+    fromJson: RadarrUtilities.availabilityFromJson,
+  )
+  RadarrAvailability? minimumAvailability;
 
-    @JsonKey(name: 'folderName')
-    String? folderName;
+  @JsonKey(name: 'isAvailable')
+  bool? isAvailable;
 
-    @JsonKey(name: 'runtime')
-    int? runtime;
+  @JsonKey(name: 'folderName')
+  String? folderName;
 
-    @JsonKey(name: 'cleanTitle')
-    String? cleanTitle;
+  @JsonKey(name: 'runtime')
+  int? runtime;
 
-    @JsonKey(name: 'imdbId')
-    String? imdbId;
+  @JsonKey(name: 'cleanTitle')
+  String? cleanTitle;
 
-    @JsonKey(name: 'tmdbId')
-    int? tmdbId;
+  @JsonKey(name: 'imdbId')
+  String? imdbId;
 
-    @JsonKey(name: 'titleSlug')
-    String? titleSlug;
+  @JsonKey(name: 'tmdbId')
+  int? tmdbId;
 
-    @JsonKey(name: 'certification')
-    String? certification;
+  @JsonKey(name: 'titleSlug')
+  String? titleSlug;
 
-    @JsonKey(name: 'genres')
-    List<String>? genres;
+  @JsonKey(name: 'certification')
+  String? certification;
 
-    @JsonKey(name: 'tags')
-    List<int?>? tags;
+  @JsonKey(name: 'genres')
+  List<String>? genres;
 
-    @JsonKey(name: 'added', toJson: RadarrUtilities.dateTimeToJson, fromJson: RadarrUtilities.dateTimeFromJson)
-    DateTime? added;
+  @JsonKey(name: 'tags')
+  List<int?>? tags;
 
-    @JsonKey(name: 'ratings')
-    RadarrMovieRating? ratings;
+  @JsonKey(
+    name: 'added',
+    toJson: RadarrUtilities.dateTimeToJson,
+    fromJson: RadarrUtilities.dateTimeFromJson,
+  )
+  DateTime? added;
 
-    @JsonKey(name: 'movieFile')
-    RadarrMovieFile? movieFile;
+  @JsonKey(name: 'ratings')
+  RadarrMovieRating? ratings;
 
-    @JsonKey(name: 'collection')
-    RadarrMovieCollection? collection;
+  @JsonKey(name: 'movieFile')
+  RadarrMovieFile? movieFile;
 
-    @JsonKey(name: 'id')
-    int? id;
+  @JsonKey(name: 'collection')
+  RadarrMovieCollection? collection;
 
-    RadarrMovie({
-        this.title,
-        this.originalTitle,
-        this.alternateTitles,
-        this.secondaryYearSourceId,
-        this.sortTitle,
-        this.sizeOnDisk,
-        this.status,
-        this.overview,
-        this.inCinemas,
-        this.physicalRelease,
-        this.digitalRelease,
-        this.images,
-        this.website,
-        this.remotePoster,
-        this.year,
-        this.hasFile,
-        this.youTubeTrailerId,
-        this.studio,
-        this.path,
-        this.qualityProfileId,
-        this.monitored,
-        this.minimumAvailability,
-        this.isAvailable,
-        this.folderName,
-        this.runtime,
-        this.cleanTitle,
-        this.imdbId,
-        this.tmdbId,
-        this.titleSlug,
-        this.certification,
-        this.genres,
-        this.tags,
-        this.added,
-        this.ratings,
-        this.movieFile,
-        this.collection,
-        this.id,
-    });
+  @JsonKey(name: 'id')
+  int? id;
 
-    /// Returns a JSON-encoded string version of this object.
-    @override
-    String toString() => json.encode(this.toJson());
+  RadarrMovie({
+    this.title,
+    this.originalTitle,
+    this.alternateTitles,
+    this.secondaryYearSourceId,
+    this.sortTitle,
+    this.sizeOnDisk,
+    this.status,
+    this.overview,
+    this.inCinemas,
+    this.physicalRelease,
+    this.digitalRelease,
+    this.images,
+    this.website,
+    this.remotePoster,
+    this.year,
+    this.hasFile,
+    this.youTubeTrailerId,
+    this.studio,
+    this.path,
+    this.qualityProfileId,
+    this.monitored,
+    this.minimumAvailability,
+    this.isAvailable,
+    this.folderName,
+    this.runtime,
+    this.cleanTitle,
+    this.imdbId,
+    this.tmdbId,
+    this.titleSlug,
+    this.certification,
+    this.genres,
+    this.tags,
+    this.added,
+    this.ratings,
+    this.movieFile,
+    this.collection,
+    this.id,
+  });
 
-    /// Deserialize a JSON map to a [RadarrMovie] object.
-    factory RadarrMovie.fromJson(Map<String, dynamic> json) => _$RadarrMovieFromJson(json);
-    /// Serialize a [RadarrMovie] object to a JSON map.
-    Map<String, dynamic> toJson() => _$RadarrMovieToJson(this);
+  /// Returns a JSON-encoded string version of this object.
+  @override
+  String toString() => json.encode(this.toJson());
+
+  /// Deserialize a JSON map to a [RadarrMovie] object.
+  factory RadarrMovie.fromJson(Map<String, dynamic> json) =>
+      _$RadarrMovieFromJson(json);
+
+  /// Serialize a [RadarrMovie] object to a JSON map.
+  Map<String, dynamic> toJson() => _$RadarrMovieToJson(this);
 }
