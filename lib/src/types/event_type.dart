@@ -30,6 +30,7 @@ extension RadarrEventTypeExtension on RadarrEventType {
       case 'movieFolderImported':
         return RadarrEventType.MOVIE_FOLDER_IMPORTED;
     }
+    return null;
   }
 
   String? get value {

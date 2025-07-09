@@ -35,8 +35,6 @@ extension RadarrAvailabilityExtension on RadarrAvailability {
         return 'preDB';
       case RadarrAvailability.TBA:
         return 'tba';
-      default:
-        return null;
     }
   }
 
@@ -52,8 +50,6 @@ extension RadarrAvailabilityExtension on RadarrAvailability {
         return 'PreDB';
       case RadarrAvailability.TBA:
         return 'TBA';
-      default:
-        return null;
     }
   }
 }

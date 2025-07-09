@@ -23,8 +23,6 @@ extension RadarrProtocolExtension on RadarrProtocol {
         return 'usenet';
       case RadarrProtocol.TORRENT:
         return 'torrent';
-      default:
-        return null;
     }
   }
 
@@ -34,8 +32,6 @@ extension RadarrProtocolExtension on RadarrProtocol {
         return 'Usenet';
       case RadarrProtocol.TORRENT:
         return 'Torrent';
-      default:
-        return null;
     }
   }
 }
