@@ -25,6 +25,7 @@ class Radarr {
   /// Internal constructor
   Radarr._internal({
     required this.httpClient,
+    required this.calendar,
     required this.command,
     required this.credits,
     required this.fileSystem,
@@ -76,6 +77,7 @@ class Radarr {
     );
     return Radarr._internal(
       httpClient: _dio,
+      calendar: RadarrCommandHandler_Calendar(_dio),
       command: RadarrCommandHandler_Command(_dio),
       credits: RadarrCommandHandler_Credits(_dio),
       fileSystem: RadarrCommandHandler_FileSystem(_dio),
@@ -119,6 +121,7 @@ class Radarr {
   factory Radarr.from({required Dio client}) {
     return Radarr._internal(
       httpClient: client,
+      calendar: RadarrCommandHandler_Calendar(client),
       command: RadarrCommandHandler_Command(client),
       credits: RadarrCommandHandler_Credits(client),
       fileSystem: RadarrCommandHandler_FileSystem(client),
@@ -146,6 +149,11 @@ class Radarr {
   /// Making changes to the [Dio] client should propogate to the command handlers, but is not recommended.
   /// The recommended way to make changes to the HTTP client is to use the `.from()` factory to build your own [Dio] HTTP client.
   final Dio httpClient;
+
+  /// Command handler for all calendar-related API calls.
+  ///
+  /// _Check the documentation to see all API calls that fall under this category._
+  final RadarrCommandHandler_Calendar calendar;
 
   /// Command handler for all movie command-related API calls.
   ///

@@ -16,6 +16,10 @@ part 'src/commands/command/refresh_monitored_downloads.dart';
 part 'src/commands/command/refresh_movie.dart';
 part 'src/commands/command/rss_sync.dart';
 
+// Calendar
+part 'src/commands/calendar.dart';
+part 'src/commands/calendar/get_calendar.dart';
+
 // Credits
 part 'src/commands/credits.dart';
 part 'src/commands/credits/get_credits.dart';

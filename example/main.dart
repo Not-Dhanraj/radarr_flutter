@@ -7,8 +7,35 @@ void main() async {
   // Your key can be fetched from the Radarr web GUI
   String key = '';
   Radarr api = Radarr(host: host, apiKey: key);
-  // Run your commands
-  // Example to get and print the title of the movie with identifier 1
-  // api.movie.get(movieId: 1).then((data) => print(data.title));
-  api.movie.getAll().then((data) => print(data.first.images!.first.url));
+
+  // Test the calendar API
+  print('Testing calendar API...');
+
+  // Get all calendar entries
+  List<RadarrMovie> allCalendar = await api.calendar.getCalendar();
+  print('All calendar entries: ${allCalendar.length}');
+
+  // Get calendar entries for a specific date range
+  DateTime start = DateTime(2025, 1, 1);
+  DateTime end = DateTime(2025, 12, 31);
+  List<RadarrMovie> rangeCalendar = await api.calendar.getCalendar(
+    start: start,
+    end: end,
+  );
+  print('Calendar entries for 2025: ${rangeCalendar.length}');
+
+  if (rangeCalendar.isNotEmpty) {
+    print('First movie: ${rangeCalendar.first.title}');
+    print('Release date: ${rangeCalendar.first.inCinemas}');
+  }
+
+  // Test with unmonitored movies included
+  List<RadarrMovie> unmonitoredCalendar = await api.calendar.getCalendar(
+    start: start,
+    end: end,
+    unmonitored: true,
+  );
+  print(
+    'Calendar entries including unmonitored: ${unmonitoredCalendar.length}',
+  );
 }
