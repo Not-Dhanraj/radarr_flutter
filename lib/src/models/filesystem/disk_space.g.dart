@@ -6,27 +6,18 @@ part of 'disk_space.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RadarrDiskSpace _$RadarrDiskSpaceFromJson(Map<String, dynamic> json) {
-  return RadarrDiskSpace(
-    path: json['path'] as String?,
-    label: json['label'] as String?,
-    freeSpace: json['freeSpace'] as int?,
-    totalSpace: json['totalSpace'] as int?,
-  );
-}
+RadarrDiskSpace _$RadarrDiskSpaceFromJson(Map<String, dynamic> json) =>
+    RadarrDiskSpace(
+      path: json['path'] as String?,
+      label: json['label'] as String?,
+      freeSpace: (json['freeSpace'] as num?)?.toInt(),
+      totalSpace: (json['totalSpace'] as num?)?.toInt(),
+    );
 
-Map<String, dynamic> _$RadarrDiskSpaceToJson(RadarrDiskSpace instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('path', instance.path);
-  writeNotNull('label', instance.label);
-  writeNotNull('freeSpace', instance.freeSpace);
-  writeNotNull('totalSpace', instance.totalSpace);
-  return val;
-}
+Map<String, dynamic> _$RadarrDiskSpaceToJson(RadarrDiskSpace instance) =>
+    <String, dynamic>{
+      if (instance.path case final value?) 'path': value,
+      if (instance.label case final value?) 'label': value,
+      if (instance.freeSpace case final value?) 'freeSpace': value,
+      if (instance.totalSpace case final value?) 'totalSpace': value,
+    };

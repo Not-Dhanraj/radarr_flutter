@@ -7,26 +7,17 @@ part of 'format_item.dart';
 // **************************************************************************
 
 RadarrQualityProfileFormatItem _$RadarrQualityProfileFormatItemFromJson(
-    Map<String, dynamic> json) {
-  return RadarrQualityProfileFormatItem(
-    format: json['format'] as int?,
-    name: json['name'] as String?,
-    score: json['score'] as int?,
-  );
-}
+  Map<String, dynamic> json,
+) => RadarrQualityProfileFormatItem(
+  format: (json['format'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  score: (json['score'] as num?)?.toInt(),
+);
 
 Map<String, dynamic> _$RadarrQualityProfileFormatItemToJson(
-    RadarrQualityProfileFormatItem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('format', instance.format);
-  writeNotNull('name', instance.name);
-  writeNotNull('score', instance.score);
-  return val;
-}
+  RadarrQualityProfileFormatItem instance,
+) => <String, dynamic>{
+  if (instance.format case final value?) 'format': value,
+  if (instance.name case final value?) 'name': value,
+  if (instance.score case final value?) 'score': value,
+};

@@ -6,47 +6,41 @@ part of 'quality_profile.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RadarrQualityProfile _$RadarrQualityProfileFromJson(Map<String, dynamic> json) {
-  return RadarrQualityProfile(
-    name: json['name'] as String?,
-    upgradeAllowed: json['upgradeAllowed'] as bool?,
-    cutoff: json['cutoff'] as int?,
-    items: (json['items'] as List<dynamic>?)
-        ?.map(
-            (e) => RadarrQualityProfileItem.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    minFormatScore: json['minFormatScore'] as int?,
-    cutoffFormatScore: json['cutoffFormatScore'] as int?,
-    formatItems: (json['formatItems'] as List<dynamic>?)
-        ?.map((e) =>
-            RadarrQualityProfileFormatItem.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    language: json['language'] == null
-        ? null
-        : RadarrLanguage.fromJson(json['language'] as Map<String, dynamic>),
-    id: json['id'] as int?,
-  );
-}
+RadarrQualityProfile _$RadarrQualityProfileFromJson(
+  Map<String, dynamic> json,
+) => RadarrQualityProfile(
+  name: json['name'] as String?,
+  upgradeAllowed: json['upgradeAllowed'] as bool?,
+  cutoff: (json['cutoff'] as num?)?.toInt(),
+  items: (json['items'] as List<dynamic>?)
+      ?.map((e) => RadarrQualityProfileItem.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  minFormatScore: (json['minFormatScore'] as num?)?.toInt(),
+  cutoffFormatScore: (json['cutoffFormatScore'] as num?)?.toInt(),
+  formatItems: (json['formatItems'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            RadarrQualityProfileFormatItem.fromJson(e as Map<String, dynamic>),
+      )
+      .toList(),
+  language: json['language'] == null
+      ? null
+      : RadarrLanguage.fromJson(json['language'] as Map<String, dynamic>),
+  id: (json['id'] as num?)?.toInt(),
+);
 
 Map<String, dynamic> _$RadarrQualityProfileToJson(
-    RadarrQualityProfile instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('upgradeAllowed', instance.upgradeAllowed);
-  writeNotNull('cutoff', instance.cutoff);
-  writeNotNull('items', instance.items?.map((e) => e.toJson()).toList());
-  writeNotNull('minFormatScore', instance.minFormatScore);
-  writeNotNull('cutoffFormatScore', instance.cutoffFormatScore);
-  writeNotNull(
-      'formatItems', instance.formatItems?.map((e) => e.toJson()).toList());
-  writeNotNull('language', instance.language?.toJson());
-  writeNotNull('id', instance.id);
-  return val;
-}
+  RadarrQualityProfile instance,
+) => <String, dynamic>{
+  if (instance.name case final value?) 'name': value,
+  if (instance.upgradeAllowed case final value?) 'upgradeAllowed': value,
+  if (instance.cutoff case final value?) 'cutoff': value,
+  if (instance.items?.map((e) => e.toJson()).toList() case final value?)
+    'items': value,
+  if (instance.minFormatScore case final value?) 'minFormatScore': value,
+  if (instance.cutoffFormatScore case final value?) 'cutoffFormatScore': value,
+  if (instance.formatItems?.map((e) => e.toJson()).toList() case final value?)
+    'formatItems': value,
+  if (instance.language?.toJson() case final value?) 'language': value,
+  if (instance.id case final value?) 'id': value,
+};

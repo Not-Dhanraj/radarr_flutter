@@ -1,0 +1,14 @@
+//add gitignore for dart package
+# Dart package files
+.dart_tool/
+.packages
+pubspec.lock
+# Flutter specific files
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-plugins-dependencies.json
+# Build outputs
+build/
+# IDE specific files
+.idea/
+.vscode/

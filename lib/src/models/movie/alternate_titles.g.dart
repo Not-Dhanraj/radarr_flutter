@@ -7,38 +7,29 @@ part of 'alternate_titles.dart';
 // **************************************************************************
 
 RadarrMovieAlternateTitles _$RadarrMovieAlternateTitlesFromJson(
-    Map<String, dynamic> json) {
-  return RadarrMovieAlternateTitles(
-    sourceType: json['sourceType'] as String?,
-    movieId: json['movieId'] as int?,
-    title: json['title'] as String?,
-    sourceId: json['sourceId'] as int?,
-    votes: json['votes'] as int?,
-    voteCount: json['voteCount'] as int?,
-    language: json['language'] == null
-        ? null
-        : RadarrLanguage.fromJson(json['language'] as Map<String, dynamic>),
-    id: json['id'] as int?,
-  );
-}
+  Map<String, dynamic> json,
+) => RadarrMovieAlternateTitles(
+  sourceType: json['sourceType'] as String?,
+  movieId: (json['movieId'] as num?)?.toInt(),
+  title: json['title'] as String?,
+  sourceId: (json['sourceId'] as num?)?.toInt(),
+  votes: (json['votes'] as num?)?.toInt(),
+  voteCount: (json['voteCount'] as num?)?.toInt(),
+  language: json['language'] == null
+      ? null
+      : RadarrLanguage.fromJson(json['language'] as Map<String, dynamic>),
+  id: (json['id'] as num?)?.toInt(),
+);
 
 Map<String, dynamic> _$RadarrMovieAlternateTitlesToJson(
-    RadarrMovieAlternateTitles instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('sourceType', instance.sourceType);
-  writeNotNull('movieId', instance.movieId);
-  writeNotNull('title', instance.title);
-  writeNotNull('sourceId', instance.sourceId);
-  writeNotNull('votes', instance.votes);
-  writeNotNull('voteCount', instance.voteCount);
-  writeNotNull('language', instance.language?.toJson());
-  writeNotNull('id', instance.id);
-  return val;
-}
+  RadarrMovieAlternateTitles instance,
+) => <String, dynamic>{
+  if (instance.sourceType case final value?) 'sourceType': value,
+  if (instance.movieId case final value?) 'movieId': value,
+  if (instance.title case final value?) 'title': value,
+  if (instance.sourceId case final value?) 'sourceId': value,
+  if (instance.votes case final value?) 'votes': value,
+  if (instance.voteCount case final value?) 'voteCount': value,
+  if (instance.language?.toJson() case final value?) 'language': value,
+  if (instance.id case final value?) 'id': value,
+};

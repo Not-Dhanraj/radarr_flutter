@@ -6,31 +6,26 @@ part of 'filesystem.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RadarrFileSystem _$RadarrFileSystemFromJson(Map<String, dynamic> json) {
-  return RadarrFileSystem(
-    parent: json['parent'] as String?,
-    directories: (json['directories'] as List<dynamic>?)
-        ?.map((e) =>
-            RadarrFileSystemDirectory.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    files: (json['files'] as List<dynamic>?)
-        ?.map((e) => RadarrFileSystemFile.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
-}
+RadarrFileSystem _$RadarrFileSystemFromJson(Map<String, dynamic> json) =>
+    RadarrFileSystem(
+      parent: json['parent'] as String?,
+      directories: (json['directories'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                RadarrFileSystemDirectory.fromJson(e as Map<String, dynamic>),
+          )
+          .toList(),
+      files: (json['files'] as List<dynamic>?)
+          ?.map((e) => RadarrFileSystemFile.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
-Map<String, dynamic> _$RadarrFileSystemToJson(RadarrFileSystem instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('parent', instance.parent);
-  writeNotNull(
-      'directories', instance.directories?.map((e) => e.toJson()).toList());
-  writeNotNull('files', instance.files?.map((e) => e.toJson()).toList());
-  return val;
-}
+Map<String, dynamic> _$RadarrFileSystemToJson(
+  RadarrFileSystem instance,
+) => <String, dynamic>{
+  if (instance.parent case final value?) 'parent': value,
+  if (instance.directories?.map((e) => e.toJson()).toList() case final value?)
+    'directories': value,
+  if (instance.files?.map((e) => e.toJson()).toList() case final value?)
+    'files': value,
+};

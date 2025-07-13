@@ -6,29 +6,20 @@ part of 'quality.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RadarrQuality _$RadarrQualityFromJson(Map<String, dynamic> json) {
-  return RadarrQuality(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
-    source: json['source'] as String?,
-    resolution: json['resolution'] as int?,
-    modifier: json['modifier'] as String?,
-  );
-}
+RadarrQuality _$RadarrQualityFromJson(Map<String, dynamic> json) =>
+    RadarrQuality(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      source: json['source'] as String?,
+      resolution: (json['resolution'] as num?)?.toInt(),
+      modifier: json['modifier'] as String?,
+    );
 
-Map<String, dynamic> _$RadarrQualityToJson(RadarrQuality instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('name', instance.name);
-  writeNotNull('source', instance.source);
-  writeNotNull('resolution', instance.resolution);
-  writeNotNull('modifier', instance.modifier);
-  return val;
-}
+Map<String, dynamic> _$RadarrQualityToJson(RadarrQuality instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.source case final value?) 'source': value,
+      if (instance.resolution case final value?) 'resolution': value,
+      if (instance.modifier case final value?) 'modifier': value,
+    };

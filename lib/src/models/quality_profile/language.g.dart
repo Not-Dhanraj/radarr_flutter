@@ -6,25 +6,16 @@ part of 'language.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RadarrLanguage _$RadarrLanguageFromJson(Map<String, dynamic> json) {
-  return RadarrLanguage(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
-    nameLower: json['nameLower'] as String?,
-  );
-}
+RadarrLanguage _$RadarrLanguageFromJson(Map<String, dynamic> json) =>
+    RadarrLanguage(
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      nameLower: json['nameLower'] as String?,
+    );
 
-Map<String, dynamic> _$RadarrLanguageToJson(RadarrLanguage instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('id', instance.id);
-  writeNotNull('name', instance.name);
-  writeNotNull('nameLower', instance.nameLower);
-  return val;
-}
+Map<String, dynamic> _$RadarrLanguageToJson(RadarrLanguage instance) =>
+    <String, dynamic>{
+      if (instance.id case final value?) 'id': value,
+      if (instance.name case final value?) 'name': value,
+      if (instance.nameLower case final value?) 'nameLower': value,
+    };

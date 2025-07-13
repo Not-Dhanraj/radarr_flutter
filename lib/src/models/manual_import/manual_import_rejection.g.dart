@@ -7,24 +7,15 @@ part of 'manual_import_rejection.dart';
 // **************************************************************************
 
 RadarrManualImportRejection _$RadarrManualImportRejectionFromJson(
-    Map<String, dynamic> json) {
-  return RadarrManualImportRejection(
-    reason: json['reason'] as String?,
-    type: json['type'] as String?,
-  );
-}
+  Map<String, dynamic> json,
+) => RadarrManualImportRejection(
+  reason: json['reason'] as String?,
+  type: json['type'] as String?,
+);
 
 Map<String, dynamic> _$RadarrManualImportRejectionToJson(
-    RadarrManualImportRejection instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('reason', instance.reason);
-  writeNotNull('type', instance.type);
-  return val;
-}
+  RadarrManualImportRejection instance,
+) => <String, dynamic>{
+  if (instance.reason case final value?) 'reason': value,
+  if (instance.type case final value?) 'type': value,
+};

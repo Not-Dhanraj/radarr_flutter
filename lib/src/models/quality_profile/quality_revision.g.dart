@@ -7,26 +7,17 @@ part of 'quality_revision.dart';
 // **************************************************************************
 
 RadarrQualityRevision _$RadarrQualityRevisionFromJson(
-    Map<String, dynamic> json) {
-  return RadarrQualityRevision(
-    version: json['version'] as int?,
-    real: json['real'] as int?,
-    isRepack: json['isRepack'] as bool?,
-  );
-}
+  Map<String, dynamic> json,
+) => RadarrQualityRevision(
+  version: (json['version'] as num?)?.toInt(),
+  real: (json['real'] as num?)?.toInt(),
+  isRepack: json['isRepack'] as bool?,
+);
 
 Map<String, dynamic> _$RadarrQualityRevisionToJson(
-    RadarrQualityRevision instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('version', instance.version);
-  writeNotNull('real', instance.real);
-  writeNotNull('isRepack', instance.isRepack);
-  return val;
-}
+  RadarrQualityRevision instance,
+) => <String, dynamic>{
+  if (instance.version case final value?) 'version': value,
+  if (instance.real case final value?) 'real': value,
+  if (instance.isRepack case final value?) 'isRepack': value,
+};

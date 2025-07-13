@@ -6,27 +6,18 @@ part of 'exclusion.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RadarrExclusion _$RadarrExclusionFromJson(Map<String, dynamic> json) {
-  return RadarrExclusion(
-    tmdbId: json['tmdbId'] as int?,
-    movieTitle: json['movieTitle'] as String?,
-    movieYear: json['movieYear'] as int?,
-    id: json['id'] as int?,
-  );
-}
+RadarrExclusion _$RadarrExclusionFromJson(Map<String, dynamic> json) =>
+    RadarrExclusion(
+      tmdbId: (json['tmdbId'] as num?)?.toInt(),
+      movieTitle: json['movieTitle'] as String?,
+      movieYear: (json['movieYear'] as num?)?.toInt(),
+      id: (json['id'] as num?)?.toInt(),
+    );
 
-Map<String, dynamic> _$RadarrExclusionToJson(RadarrExclusion instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('tmdbId', instance.tmdbId);
-  writeNotNull('movieTitle', instance.movieTitle);
-  writeNotNull('movieYear', instance.movieYear);
-  writeNotNull('id', instance.id);
-  return val;
-}
+Map<String, dynamic> _$RadarrExclusionToJson(RadarrExclusion instance) =>
+    <String, dynamic>{
+      if (instance.tmdbId case final value?) 'tmdbId': value,
+      if (instance.movieTitle case final value?) 'movieTitle': value,
+      if (instance.movieYear case final value?) 'movieYear': value,
+      if (instance.id case final value?) 'id': value,
+    };

@@ -7,32 +7,25 @@ part of 'directory.dart';
 // **************************************************************************
 
 RadarrFileSystemDirectory _$RadarrFileSystemDirectoryFromJson(
-    Map<String, dynamic> json) {
-  return RadarrFileSystemDirectory(
-    type: RadarrUtilities.fileSystemTypeFromJson(json['type'] as String?),
-    name: json['name'] as String?,
-    path: json['path'] as String?,
-    size: json['size'] as int?,
-    lastModified:
-        RadarrUtilities.dateTimeFromJson(json['lastModified'] as String?),
-  );
-}
+  Map<String, dynamic> json,
+) => RadarrFileSystemDirectory(
+  type: RadarrUtilities.fileSystemTypeFromJson(json['type'] as String?),
+  name: json['name'] as String?,
+  path: json['path'] as String?,
+  size: (json['size'] as num?)?.toInt(),
+  lastModified: RadarrUtilities.dateTimeFromJson(
+    json['lastModified'] as String?,
+  ),
+);
 
 Map<String, dynamic> _$RadarrFileSystemDirectoryToJson(
-    RadarrFileSystemDirectory instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('type', RadarrUtilities.fileSystemTypeToJson(instance.type));
-  writeNotNull('name', instance.name);
-  writeNotNull('path', instance.path);
-  writeNotNull('size', instance.size);
-  writeNotNull(
-      'lastModified', RadarrUtilities.dateTimeToJson(instance.lastModified));
-  return val;
-}
+  RadarrFileSystemDirectory instance,
+) => <String, dynamic>{
+  if (RadarrUtilities.fileSystemTypeToJson(instance.type) case final value?)
+    'type': value,
+  if (instance.name case final value?) 'name': value,
+  if (instance.path case final value?) 'path': value,
+  if (instance.size case final value?) 'size': value,
+  if (RadarrUtilities.dateTimeToJson(instance.lastModified) case final value?)
+    'lastModified': value,
+};

@@ -7,28 +7,20 @@ part of 'collection.dart';
 // **************************************************************************
 
 RadarrMovieCollection _$RadarrMovieCollectionFromJson(
-    Map<String, dynamic> json) {
-  return RadarrMovieCollection(
-    name: json['name'] as String?,
-    tmdbId: json['tmdbId'] as int?,
-    images: (json['images'] as List<dynamic>?)
-        ?.map((e) => RadarrImage.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
-}
+  Map<String, dynamic> json,
+) => RadarrMovieCollection(
+  name: json['name'] as String?,
+  tmdbId: (json['tmdbId'] as num?)?.toInt(),
+  images: (json['images'] as List<dynamic>?)
+      ?.map((e) => RadarrImage.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
 
 Map<String, dynamic> _$RadarrMovieCollectionToJson(
-    RadarrMovieCollection instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('name', instance.name);
-  writeNotNull('tmdbId', instance.tmdbId);
-  writeNotNull('images', instance.images?.map((e) => e.toJson()).toList());
-  return val;
-}
+  RadarrMovieCollection instance,
+) => <String, dynamic>{
+  if (instance.name case final value?) 'name': value,
+  if (instance.tmdbId case final value?) 'tmdbId': value,
+  if (instance.images?.map((e) => e.toJson()).toList() case final value?)
+    'images': value,
+};
