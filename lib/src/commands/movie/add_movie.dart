@@ -9,6 +9,7 @@ Future<RadarrMovie> _commandAddMovie(
   required RadarrQualityProfile qualityProfile,
   List<RadarrTag>? tags,
   bool? searchForMovie,
+  RadarrMovieTypes? monitor,
 }) async {
   // Updating movie
   movie.id = 0;
@@ -22,6 +23,9 @@ Future<RadarrMovie> _commandAddMovie(
   _json['addOptions'] = <String, dynamic>{
     'searchForMovie': searchForMovie ?? false,
   };
+  if (monitor != null) {
+    _json['addOptions']['monitor'] = monitor.value;
+  }
   // Add the movie
   Response response = await client.post('movie', data: _json);
   return RadarrMovie.fromJson(response.data);

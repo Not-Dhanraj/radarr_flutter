@@ -7,15 +7,15 @@ Future<List<RadarrMovie>> _commandGetCalendar(
   bool? unmonitored,
 }) async {
   Map<String, dynamic> parameters = {};
-  
+
   if (start != null) {
     parameters['start'] = start.toIso8601String().split('T')[0];
   }
-  
+
   if (end != null) {
     parameters['end'] = end.toIso8601String().split('T')[0];
   }
-  
+
   if (unmonitored != null) {
     parameters['unmonitored'] = unmonitored;
   }

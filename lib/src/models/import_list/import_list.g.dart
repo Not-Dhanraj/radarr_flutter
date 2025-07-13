@@ -15,7 +15,8 @@ RadarrImportList _$RadarrImportListFromJson(Map<String, dynamic> json) {
     qualityProfileId: json['qualityProfileId'] as int?,
     searchOnAdd: json['searchOnAdd'] as bool?,
     minimumAvailability: RadarrUtilities.availabilityFromJson(
-        json['minimumAvailability'] as String?),
+      json['minimumAvailability'],
+    ),
     listType: json['listType'] as String?,
     listOrder: json['listOrder'] as int?,
     name: json['name'] as String?,
@@ -46,8 +47,10 @@ Map<String, dynamic> _$RadarrImportListToJson(RadarrImportList instance) {
   writeNotNull('rootFolderPath', instance.rootFolderPath);
   writeNotNull('qualityProfileId', instance.qualityProfileId);
   writeNotNull('searchOnAdd', instance.searchOnAdd);
-  writeNotNull('minimumAvailability',
-      RadarrUtilities.availabilityToJson(instance.minimumAvailability));
+  writeNotNull(
+    'minimumAvailability',
+    RadarrUtilities.availabilityToJson(instance.minimumAvailability),
+  );
   writeNotNull('listType', instance.listType);
   writeNotNull('listOrder', instance.listOrder);
   writeNotNull('name', instance.name);

@@ -109,4 +109,11 @@ class RadarrUtilities {
   static String? trackedDownloadStatusToJson(
     RadarrTrackedDownloadStatus? type,
   ) => type?.key;
+
+  /// Converts a string to a [RadarrMovieTypes] object.
+  static RadarrMovieTypes? movieTypesFromJson(String? type) =>
+      RadarrMovieTypes.MOVIE_ONLY.from(type);
+
+  /// Converts a [RadarrMovieTypes] object back to its string representation.
+  static String? movieTypesToJson(RadarrMovieTypes? type) => type?.value;
 }

@@ -11,19 +11,22 @@ RadarrMovie _$RadarrMovieFromJson(Map<String, dynamic> json) {
     title: json['title'] as String?,
     originalTitle: json['originalTitle'] as String?,
     alternateTitles: (json['alternateTitles'] as List<dynamic>?)
-        ?.map((e) =>
-            RadarrMovieAlternateTitles.fromJson(e as Map<String, dynamic>))
+        ?.map(
+          (e) => RadarrMovieAlternateTitles.fromJson(e as Map<String, dynamic>),
+        )
         .toList(),
     secondaryYearSourceId: json['secondaryYearSourceId'] as int?,
     sortTitle: json['sortTitle'] as String?,
     sizeOnDisk: json['sizeOnDisk'] as int?,
-    status: RadarrUtilities.availabilityFromJson(json['status'] as String?),
+    status: RadarrUtilities.availabilityFromJson(json['status']),
     overview: json['overview'] as String?,
     inCinemas: RadarrUtilities.dateTimeFromJson(json['inCinemas'] as String?),
-    physicalRelease:
-        RadarrUtilities.dateTimeFromJson(json['physicalRelease'] as String?),
-    digitalRelease:
-        RadarrUtilities.dateTimeFromJson(json['digitalRelease'] as String?),
+    physicalRelease: RadarrUtilities.dateTimeFromJson(
+      json['physicalRelease'] as String?,
+    ),
+    digitalRelease: RadarrUtilities.dateTimeFromJson(
+      json['digitalRelease'] as String?,
+    ),
     images: (json['images'] as List<dynamic>?)
         ?.map((e) => RadarrImage.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -37,7 +40,8 @@ RadarrMovie _$RadarrMovieFromJson(Map<String, dynamic> json) {
     qualityProfileId: json['qualityProfileId'] as int?,
     monitored: json['monitored'] as bool?,
     minimumAvailability: RadarrUtilities.availabilityFromJson(
-        json['minimumAvailability'] as String?),
+      json['minimumAvailability'],
+    ),
     isAvailable: json['isAvailable'] as bool?,
     folderName: json['folderName'] as String?,
     runtime: json['runtime'] as int?,
@@ -46,8 +50,9 @@ RadarrMovie _$RadarrMovieFromJson(Map<String, dynamic> json) {
     tmdbId: json['tmdbId'] as int?,
     titleSlug: json['titleSlug'] as String?,
     certification: json['certification'] as String?,
-    genres:
-        (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    genres: (json['genres'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList(),
     tags: (json['tags'] as List<dynamic>?)?.map((e) => e as int?).toList(),
     added: RadarrUtilities.dateTimeFromJson(json['added'] as String?),
     ratings: json['ratings'] == null
@@ -59,7 +64,8 @@ RadarrMovie _$RadarrMovieFromJson(Map<String, dynamic> json) {
     collection: json['collection'] == null
         ? null
         : RadarrMovieCollection.fromJson(
-            json['collection'] as Map<String, dynamic>),
+            json['collection'] as Map<String, dynamic>,
+          ),
     id: json['id'] as int?,
   );
 }
@@ -75,18 +81,24 @@ Map<String, dynamic> _$RadarrMovieToJson(RadarrMovie instance) {
 
   writeNotNull('title', instance.title);
   writeNotNull('originalTitle', instance.originalTitle);
-  writeNotNull('alternateTitles',
-      instance.alternateTitles?.map((e) => e.toJson()).toList());
+  writeNotNull(
+    'alternateTitles',
+    instance.alternateTitles?.map((e) => e.toJson()).toList(),
+  );
   writeNotNull('secondaryYearSourceId', instance.secondaryYearSourceId);
   writeNotNull('sortTitle', instance.sortTitle);
   writeNotNull('sizeOnDisk', instance.sizeOnDisk);
   writeNotNull('status', RadarrUtilities.availabilityToJson(instance.status));
   writeNotNull('overview', instance.overview);
   writeNotNull('inCinemas', RadarrUtilities.dateTimeToJson(instance.inCinemas));
-  writeNotNull('physicalRelease',
-      RadarrUtilities.dateTimeToJson(instance.physicalRelease));
-  writeNotNull('digitalRelease',
-      RadarrUtilities.dateTimeToJson(instance.digitalRelease));
+  writeNotNull(
+    'physicalRelease',
+    RadarrUtilities.dateTimeToJson(instance.physicalRelease),
+  );
+  writeNotNull(
+    'digitalRelease',
+    RadarrUtilities.dateTimeToJson(instance.digitalRelease),
+  );
   writeNotNull('images', instance.images?.map((e) => e.toJson()).toList());
   writeNotNull('website', instance.website);
   writeNotNull('remotePoster', instance.remotePoster);
@@ -97,8 +109,10 @@ Map<String, dynamic> _$RadarrMovieToJson(RadarrMovie instance) {
   writeNotNull('path', instance.path);
   writeNotNull('qualityProfileId', instance.qualityProfileId);
   writeNotNull('monitored', instance.monitored);
-  writeNotNull('minimumAvailability',
-      RadarrUtilities.availabilityToJson(instance.minimumAvailability));
+  writeNotNull(
+    'minimumAvailability',
+    RadarrUtilities.availabilityToJson(instance.minimumAvailability),
+  );
   writeNotNull('isAvailable', instance.isAvailable);
   writeNotNull('folderName', instance.folderName);
   writeNotNull('runtime', instance.runtime);

@@ -67,6 +67,7 @@ class RadarrCommandHandler_Movie {
   /// Optional Parameters:
   /// - `tags`: List of [RadarrTag]s to be assigned to the movie
   /// - `searchForMovie` Should a search for the movie be started after being added?
+  /// - `monitor`: [RadarrMovieTypes] for monitoring type (movieOnly, movieAndCollection, none)
   Future<RadarrMovie> create({
     required RadarrMovie movie,
     required RadarrRootFolder rootFolder,
@@ -75,6 +76,7 @@ class RadarrCommandHandler_Movie {
     required RadarrQualityProfile qualityProfile,
     List<RadarrTag>? tags,
     bool searchForMovie = false,
+    RadarrMovieTypes? monitor,
   }) async => _commandAddMovie(
     _client,
     movie: movie,
@@ -84,5 +86,6 @@ class RadarrCommandHandler_Movie {
     qualityProfile: qualityProfile,
     tags: tags,
     searchForMovie: searchForMovie,
+    monitor: monitor,
   );
 }
